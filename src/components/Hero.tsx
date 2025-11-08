@@ -40,12 +40,12 @@ const Hero: React.FC = () => {
           =============================================
           UBAH FOTO PROFIL ANDA DI SINI
           =============================================
-          1. Buat folder bernama `assets` di direktori utama proyek Anda.
-          2. Tempatkan file gambar Anda di dalam folder `assets` tersebut.
-          3. Ganti `"./assets/profile.jpg"` di bawah ini dengan path ke gambar Anda (misalnya, `"./assets/nama-foto-anda.png"`).
+          1. Buat folder `public/assets` di direktori utama proyek Anda.
+          2. Tempatkan file gambar Anda di dalam folder `public/assets` tersebut.
+          3. Path di bawah ini sudah diperbarui. Pastikan nama file Anda `profile.jpg` atau sesuaikan.
         */}
         <img 
-          src="https://media.licdn.com/dms/image/D5603AQEU5G0jX2a95A/profile-displayphoto-shrink_400_400/0/1709540097940?e=1727308800&v=beta&t=Ue-jBq1d_JmhLg1x_E4hO6X_fLg-8N4X0zH6c4X0Z9o"
+          src="/assets/profile.jpg"
           alt="Nandito Yuda Samosir" 
           className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full mx-auto mb-6 border-4 border-stone-100/50 shadow-xl"
         />

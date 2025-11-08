@@ -5,10 +5,9 @@ import type { EducationItem } from '../types';
   =============================================
   UBAH DATA PENDIDIKAN ANDA DI SINI
   =============================================
-  1. Buat folder bernama `assets` di direktori utama (root) proyek Anda.
-  2. Tempatkan file logo institusi Anda (misalnya, 'logo-ub.png') di dalam folder `assets`.
-  3. Ganti path `icon` di bawah ini dengan path ke logo Anda (misalnya, `'./assets/logo-ub.png'`).
-  - Jika path gambar salah, area ikon akan kosong.
+  1. Buat folder `public/assets` di direktori utama (root) proyek Anda.
+  2. Tempatkan file logo institusi Anda di dalam folder `public/assets`.
+  3. Path di bawah ini telah diperbarui. Pastikan nama file Anda sudah benar.
 */
 const educationData: EducationItem[] = [
   {
@@ -16,14 +15,14 @@ const educationData: EducationItem[] = [
     degree: 'Bachelor of Engineering (S.T.)',
     date: 'Sept 2021 - Jan 2025',
     description: 'Graduated with a degree in Computer Engineering, focusing on computer systems and software engineering. Final GPA: 3.84/4.00.',
-    icon: './assets/brawijaya-logo.png', // Ganti dengan path ke logo Anda
+    icon: '/assets/brawijaya-logo.png', // Ganti dengan path ke logo Anda
   },
   {
     institution: 'Bangkit Academy 2024 by Google, GoTo, & Traveloka',
     degree: 'Machine Learning Cohort',
     date: 'Feb 2024 - Jul 2024',
     description: 'Completed an intensive program focused on machine learning, including TensorFlow, data analysis, and model deployment, culminating in a capstone project.',
-    icon: './assets/bangkit-logo.png', // Ganti dengan path ke logo Anda
+    icon: '/assets/bangkit-logo.png', // Ganti dengan path ke logo Anda
   },
 ];
 
