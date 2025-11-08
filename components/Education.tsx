@@ -17,7 +17,7 @@ const educationData: EducationItem[] = [
     date: "Sept 2021 - Jan 2025",
     description:
       "Graduated with a degree in Computer Engineering, focusing on computer systems and software engineering. Final GPA: 3.84/4.00.",
-    icon: "./assets/myedu_ub_logo.png", // Ganti dengan path ke logo Anda
+    icon: "../assets/myedu_ub_logo.png", // Ganti dengan path ke logo Anda
   },
   {
     institution: "Bangkit Academy 2024 by Google, GoTo, & Traveloka",
@@ -25,7 +25,7 @@ const educationData: EducationItem[] = [
     date: "Feb 2024 - Jul 2024",
     description:
       "Completed an intensive program focused on machine learning, including TensorFlow, data analysis, and model deployment, culminating in a capstone project.",
-    icon: "./assets/myedu_bangkit.png", // Ganti dengan path ke logo Anda
+    icon: "../assets/myedu_bangkit.png", // Ganti dengan path ke logo Anda
   },
 ];
 

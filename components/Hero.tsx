@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
           3. Ganti `"./assets/profile.jpg"` di bawah ini dengan path ke gambar Anda (misalnya, `"./assets/nama-foto-anda.png"`).
         */}
         <img
-          src="hero_image.jpg"
+          src="../assets/hero_image.jpg"
           alt="Nandito Yuda Samosir"
           className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full mx-auto mb-6 border-4 border-stone-100/50 shadow-xl"
         />
