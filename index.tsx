@@ -1,16 +1,21 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import { AskEditor } from './components/AskEditor';
+import { portfolioContext } from './data';
 
-const rootElement = document.getElementById('root');
-if (!rootElement) {
-  throw new Error("Could not find root element to mount to");
+// Pastikan halaman di-scroll ke paling atas saat dimuat/refresh
+if ('scrollRestoration' in window.history) {
+  window.history.scrollRestoration = 'manual';
 }
+window.scrollTo(0, 0);
 
-const root = ReactDOM.createRoot(rootElement);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const editorWidget = document.getElementById('ask-editor-widget');
+
+if (editorWidget) {
+  const root = ReactDOM.createRoot(editorWidget);
+  root.render(
+    <React.StrictMode>
+      <AskEditor portfolioContext={portfolioContext} />
+    </React.StrictMode>
+  );
+}

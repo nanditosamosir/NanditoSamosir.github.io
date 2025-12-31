@@ -1,42 +1,761 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" style="scroll-behavior: auto; overflow-y: scroll">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nandito Yuda Samosir - Computer Engineer</title>
+    <title>The Portfolio Times</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Domine:wght@400;600;700&family=Libre+Franklin:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=UnifrakturMaguntia&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Chomsky Font from CDNFonts -->
+    <link href="https://fonts.cdnfonts.com/css/chomsky" rel="stylesheet" />
+    <!-- Immediate scroll to top on page load -->
     <script>
-      // Konfigurasi ini memungkinkan Tailwind CSS untuk menggunakan mode gelap berbasis class.
-      // Hal ini penting agar JavaScript dapat mengubah tema secara dinamis dengan menambahkan/menghapus kelas 'dark' pada elemen <html>.
+      // Scroll ke atas segera saat page dimulai
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    </script>
+    <script>
       tailwind.config = {
-        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              "news-paper": "#fdfcfb",
+              "news-ink": "#121212",
+              "news-accent": "#8b0000",
+            },
+            fontFamily: {
+              masthead: ['"Chomsky"', "serif"],
+              headline: ['"Domine"', "serif"],
+              body: ['"Lora"', "serif"],
+              sans: ['"Libre Franklin"', "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <script type="importmap">
+      {
+        "imports": {
+          "react/": "https://esm.sh/react@^19.2.3/",
+          "react": "https://esm.sh/react@^19.2.3",
+          "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+          "@google/genai": "https://esm.sh/@google/genai@^1.33.0"
+        }
       }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-      body {
-        font-family: 'Poppins', sans-serif;
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body
+    class="bg-news-paper font-body text-news-ink"
+    style="overflow-y: scroll; scroll-behavior: auto"
+  >
+    <div class="paper-overlay"></div>
+
+    <!-- Main Paper Container -->
+    <div class="min-h-screen p-2 md:p-8 lg:p-12 max-w-[1300px] mx-auto">
+      <div
+        class="bg-news-paper min-h-screen shadow-[0_15px_60px_rgba(0,0,0,0.1)] p-4 md:p-10 relative border border-gray-200"
+      >
+        <!-- HEADER -->
+        <header
+          class="flex flex-col items-center w-full mb-8 border-b-4 border-news-ink pb-4"
+        >
+          <div
+            class="w-full flex justify-between border-b border-news-ink py-2 px-4 font-sans font-bold text-[10px] md:text-xs uppercase mb-4 text-news-ink tracking-widest"
+          >
+            <span>Vol. 2026 • No. 1</span>
+            <span>Nandito Yuda Samosir Edition</span>
+            <span>Jakarta, ID</span>
+          </div>
+          <h1
+            class="font-masthead text-6xl md:text-8xl lg:text-9xl text-center leading-none mb-2 text-news-ink tracking-tight"
+          >
+            The Portfolio Times
+          </h1>
+          <div
+            class="w-full flex flex-col md:flex-row justify-between items-center border-t-2 border-b-2 border-news-ink py-2 mt-4 px-4 text-news-ink"
+          >
+            <span class="font-headline italic font-bold text-lg"
+              >"Engineering Intelligence, Analyzing the Future"</span
+            >
+            <div
+              class="flex flex-col items-center md:items-end font-sans text-xs font-bold uppercase tracking-widest mt-2 md:mt-0"
+            >
+              <span id="current-date">FRIDAY, JANUARY 1, 2026</span>
+              <span class="text-news-accent">Status: Open to Work</span>
+            </div>
+          </div>
+        </header>
+
+        <main class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <!-- LEFT COLUMN -->
+          <div class="lg:col-span-8">
+            <!-- HERO ARTICLE -->
+            <article class="mb-8">
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                <div class="md:col-span-12">
+                  <h2
+                    class="font-headline text-5xl md:text-6xl font-bold leading-tight mb-4 uppercase text-news-ink"
+                  >
+                    Currently working as a Junior Data Engineer at Indosat
+                  </h2>
+                  <div
+                    class="flex gap-4 mb-6 items-center border-b border-gray-200 pb-2"
+                  >
+                    <span
+                      class="font-sans font-bold text-[10px] uppercase bg-news-ink text-white px-2 py-1 tracking-widest"
+                      >LATEST UPDATE</span
+                    >
+                    <p
+                      class="font-sans text-xs font-bold uppercase text-gray-500 tracking-wide"
+                    >
+                      By Editorial Staff • Jakarta Pusat
+                    </p>
+                  </div>
+
+                  <!-- Profile Image Container -->
+                  <div
+                    class="float-right ml-6 mb-2 w-[38%] max-w-[240px] border border-news-ink p-1.5 bg-white shadow-sm"
+                  >
+                    <div class="newspaper-image-container">
+                      <img
+                        src="assets/hero_image.png"
+                        alt="Profile"
+                        class="w-full aspect-[3/4] object-cover"
+                      />
+                    </div>
+                    <p
+                      class="font-sans text-[11px] font-bold uppercase text-gray-600 text-center mt-3 px-1 leading-snug border-t border-news-ink pt-2"
+                    >
+                      Nandito Samosir, Junior Data Engineer at PT Indosat Tbk.
+                    </p>
+                  </div>
+
+                  <p
+                    class="drop-article font-body text-base text-justify leading-relaxed text-news-ink mb-4"
+                  >
+                    Nandito Yuda Samosir has officially embarked on a
+                    professional journey in the telecommunications sector after
+                    a stellar academic career at the University of Brawijaya.
+                    Boasting a GPA of 3.83/4.00, Samosir is now a Junior Data
+                    Engineer at PT Indosat Tbk., where he leverages his
+                    expertise in Python, Machine Learning, and Data Analysis.
+                  </p>
+
+                  <p
+                    class="font-body text-base text-justify leading-relaxed text-news-ink"
+                  >
+                    His transition from a highly-regarded apprentice to a
+                    full-time engineer marks him as one of the most promising
+                    talents in the Jakarta tech landscape. With a solid
+                    foundation in engineering intelligence and a keen eye for
+                    future data trends, Samosir continues to contribute
+                    significantly to the development of sophisticated technical
+                    infrastructures and innovative data pipelines.
+                  </p>
+
+                  <div class="clear-both"></div>
+                </div>
+              </div>
+            </article>
+
+            <hr class="border-t-2 border-news-ink my-6 w-full opacity-80" />
+
+            <!-- EXPERIENCE -->
+            <div class="mb-6 border-b-2 border-news-ink pb-2">
+              <h2
+                class="font-headline text-3xl font-bold uppercase tracking-wide text-news-ink"
+              >
+                Experience Record
+              </h2>
+              <p
+                class="font-sans text-sm font-semibold uppercase tracking-wider text-gray-600 mt-2"
+              >
+                Professional Career Ledger
+              </p>
+            </div>
+            <div class="space-y-8">
+              <div class="border-l-4 border-news-accent pl-4">
+                <h4 class="font-headline font-bold text-xl uppercase">
+                  Junior Data Engineer
+                </h4>
+                <div
+                  class="font-sans text-xs font-bold uppercase text-gray-500 mb-2 tracking-widest"
+                >
+                  PT Indosat Tbk. | Jan 2026 - Present
+                </div>
+                <p class="font-body text-sm leading-relaxed text-gray-800">
+                  Current role focuses on data engineering pipelines and
+                  infrastructure within the telecommunications giant's technical
+                  division.
+                </p>
+              </div>
+              <div class="border-l-4 border-news-accent pl-4">
+                <h4 class="font-headline font-bold text-xl uppercase">
+                  Market Research (Apprentice)
+                </h4>
+                <div
+                  class="font-sans text-xs font-bold uppercase text-gray-500 mb-2 tracking-widest"
+                >
+                  PT Indosat Tbk. | Jul 2025 - Dec 2025
+                </div>
+                <p
+                  class="font-body text-sm leading-relaxed text-gray-800 italic mb-2"
+                >
+                  Part of the INSPIRE structured apprenticeship program.
+                </p>
+                <ul class="font-body text-sm list-disc pl-5 space-y-1">
+                  <li>
+                    Researched LEO satellite internet market share and target
+                    customers in Indonesia.
+                  </li>
+                  <li>
+                    Analyzed top 10 upstream tier-1 transit in Indonesia based
+                    on popular Network Providers (NAP).
+                  </li>
+                  <li>
+                    Developed 108 Roaming mobile internet package products and
+                    NGSSP configurations.
+                  </li>
+                  <li>
+                    Contributed to Flexi Mobile internet package product
+                    development (SID and A# products).
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <hr class="border-t-2 border-news-ink my-6 w-full opacity-80" />
+
+            <!-- PROJECTS -->
+            <div class="mb-6 border-b-2 border-news-ink pb-2">
+              <h2
+                class="font-headline text-3xl font-bold uppercase tracking-wide text-news-ink"
+              >
+                Engineering Projects
+              </h2>
+              <p
+                class="font-sans text-sm font-semibold uppercase tracking-wider text-gray-600 mt-2"
+              >
+                Special Technical Reports
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="flex flex-col border-b border-gray-300 pb-6">
+                <h3 class="font-headline text-2xl font-bold mb-2 leading-tight">
+                  <a
+                    href="https://github.com/nanditosamosir/Drowsiness_Detection_Model_EfficientNetV2"
+                    target="_blank"
+                    class="hover:underline decoration-news-accent"
+                    >Drowsiness Detection</a
+                  >
+                </h3>
+                <a
+                  href="https://github.com/nanditosamosir/Drowsiness_Detection_Model_EfficientNetV2"
+                  target="_blank"
+                >
+                  <div class="newspaper-image-container mb-2">
+                    <img
+                      src="https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?q=80&w=600&auto=format&fit=crop"
+                      alt="Eye Focus Detection"
+                      class="w-full h-44 object-cover"
+                    />
+                  </div>
+                </a>
+                <p
+                  class="font-sans text-[10px] font-bold uppercase text-gray-500 mb-2"
+                >
+                  Sept 2024 - Nov 2024
+                </p>
+                <p class="font-body text-sm text-justify mb-3 leading-relaxed">
+                  EfficientNetV2-based model with CBAM and SE Attention modules,
+                  achieving 96% accuracy in detecting sleepy eyes via deep
+                  learning pipelines.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="font-sans text-[9px] font-bold uppercase border border-gray-400 px-1"
+                    >Python</span
+                  >
+                  <span
+                    class="font-sans text-[9px] font-bold uppercase border border-gray-400 px-1"
+                    >ML/DL</span
+                  >
+                </div>
+              </div>
+              <div class="flex flex-col border-b border-gray-300 pb-6">
+                <h3 class="font-headline text-2xl font-bold mb-2 leading-tight">
+                  <a
+                    href="https://github.com/Fungi-info-Bangkit-Capstone"
+                    target="_blank"
+                    class="hover:underline decoration-news-accent"
+                    >Fungi.info - Bangkit</a
+                  >
+                </h3>
+                <a
+                  href="https://github.com/Fungi-info-Bangkit-Capstone"
+                  target="_blank"
+                >
+                  <div class="newspaper-image-container mb-2">
+                    <img
+                      src="https://images.unsplash.com/photo-1590487988256-9ed24133863e?q=80&w=600&auto=format&fit=crop"
+                      alt="Wild Fungi Classification"
+                      class="w-full h-44 object-cover"
+                    />
+                  </div>
+                </a>
+                <p
+                  class="font-sans text-[10px] font-bold uppercase text-gray-500 mb-2"
+                >
+                  May 2024 - Jun 2024
+                </p>
+                <p class="font-body text-sm text-justify mb-3 leading-relaxed">
+                  Mobile application utilizing Image Recognition to identify
+                  fungi species with 91% accuracy, aiding outdoor safety for
+                  enthusiasts.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="font-sans text-[9px] font-bold uppercase border border-gray-400 px-1"
+                    >CNN</span
+                  >
+                  <span
+                    class="font-sans text-[9px] font-bold uppercase border border-gray-400 px-1"
+                    >Android</span
+                  >
+                </div>
+              </div>
+              <div
+                class="flex flex-col md:col-span-2 border-b border-gray-300 pb-6"
+              >
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+                  <div class="md:col-span-4">
+                    <a
+                      href="https://github.com/nanditosamosir/Embedded-System-Project"
+                      target="_blank"
+                    >
+                      <div class="newspaper-image-container">
+                        <img
+                          src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=600&auto=format&fit=crop"
+                          alt="Automated Pet Interaction"
+                          class="w-full h-44 object-cover"
+                        />
+                      </div>
+                    </a>
+                  </div>
+                  <div class="md:col-span-8">
+                    <h3
+                      class="font-headline text-2xl font-bold mb-2 leading-tight"
+                    >
+                      <a
+                        href="https://github.com/nanditosamosir/Embedded-System-Project"
+                        target="_blank"
+                        class="hover:underline decoration-news-accent"
+                        >Automatic Pet Feeder</a
+                      >
+                    </h3>
+                    <p
+                      class="font-sans text-[10px] font-bold uppercase text-gray-500 mb-2"
+                    >
+                      Apr 2023 - Jun 2023
+                    </p>
+                    <p
+                      class="font-body text-sm text-justify mb-3 leading-relaxed"
+                    >
+                      Arduino-based automated system with firmware coded in C++
+                      and custom PCB schematics. Features precise scheduling and
+                      reliable hardware-software integration for domestic use.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                      <span
+                        class="font-sans text-[9px] font-bold uppercase border border-gray-400 px-1"
+                        >C++</span
+                      >
+                      <span
+                        class="font-sans text-[9px] font-bold uppercase border border-gray-400 px-1"
+                        >Embedded</span
+                      >
+                      <span
+                        class="font-sans text-[9px] font-bold uppercase border border-gray-400 px-1"
+                        >PCB Design</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div
+            class="lg:col-span-4 border-l-0 lg:border-l-2 border-news-ink lg:pl-8 space-y-10"
+          >
+            <!-- EDUCATION -->
+            <div
+              class="border border-news-ink p-6 bg-white shadow-[6px_6px_0px_rgba(18,18,18,0.05)]"
+            >
+              <div class="border-b-2 border-news-ink mb-4 pb-1">
+                <h3
+                  class="font-headline font-bold text-2xl text-center uppercase tracking-tighter italic"
+                >
+                  Education Bulletins
+                </h3>
+              </div>
+
+              <div class="space-y-6">
+                <div class="text-center">
+                  <h4
+                    class="font-headline font-bold text-lg leading-tight uppercase underline underline-offset-4 decoration-1"
+                  >
+                    University of Brawijaya
+                  </h4>
+                  <p
+                    class="font-sans text-[9px] font-black uppercase text-gray-500 mt-1 tracking-widest"
+                  >
+                    BACHELOR OF ENGINEERING • 2021-2025
+                  </p>
+                  <div class="flex items-center justify-center gap-2 mt-2">
+                    <div class="h-[1px] bg-news-ink flex-1"></div>
+                    <p class="font-headline font-bold text-sm italic">
+                      Computer Engineering
+                    </p>
+                    <div class="h-[1px] bg-news-ink flex-1"></div>
+                  </div>
+                  <p
+                    class="font-body text-sm mt-2 border border-news-ink inline-block px-3 py-1 font-bold"
+                  >
+                    GPA: 3.83 / 4.00
+                  </p>
+                </div>
+
+                <div
+                  class="pt-4 border-t border-dotted border-news-ink text-center"
+                >
+                  <h4
+                    class="font-headline font-bold text-lg leading-tight uppercase"
+                  >
+                    Bangkit Academy
+                  </h4>
+                  <p
+                    class="font-sans text-[9px] font-black uppercase text-gray-400 mt-1 tracking-widest"
+                  >
+                    TECHNICAL FELLOWSHIP • 2024
+                  </p>
+                  <p class="font-body text-sm mt-1 italic">
+                    Machine Learning Cohort
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-6 text-center">
+                <p
+                  class="font-sans text-[7px] uppercase font-bold text-gray-400 tracking-[0.4em]"
+                >
+                  Official Academic Ledger
+                </p>
+              </div>
+            </div>
+
+            <!-- CV SUPPLEMENT SECTION -->
+            <div
+              class="border-4 border-dashed border-news-ink p-5 bg-news-paper relative overflow-hidden group"
+            >
+              <div
+                class="absolute -right-4 -top-4 w-16 h-16 bg-news-ink text-white flex items-center justify-center rotate-12 font-sans font-bold text-[8px] uppercase tracking-tighter"
+              >
+                <span class="text-center">FULL<br />ARCHIVE</span>
+              </div>
+              <h3
+                class="font-headline font-bold text-xl mb-2 uppercase tracking-tighter"
+              >
+                Special Supplement
+              </h3>
+              <p class="font-body text-xs italic mb-4 leading-snug text-center">
+                "The complete record of professional accomplishments, technical
+                certifications, and engineering history."
+              </p>
+              <a
+                href="assets/CV_Nandito Yuda Samosir.pdf"
+                target="_blank"
+                class="flex items-center justify-between bg-news-ink text-news-paper px-4 py-3 hover:bg-news-accent transition-colors duration-300"
+              >
+                <div class="flex items-center gap-3">
+                  <svg
+                    class="w-5 h-5 fill-current"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"
+                    />
+                  </svg>
+                  <span
+                    class="font-headline font-bold text-sm tracking-widest uppercase"
+                    >Curriculum Vitae</span
+                  >
+                </div>
+                <span class="font-sans text-[10px] font-black opacity-60"
+                  >PDF</span
+                >
+              </a>
+              <p
+                class="font-sans text-[8px] font-bold uppercase text-gray-400 mt-3 text-center tracking-[0.3em]"
+              >
+                Official Document Archive
+              </p>
+            </div>
+
+            <!-- REACT WIDGET MOUNT POINT -->
+            <div id="ask-editor-widget"></div>
+
+            <!-- CLASSIFIEDS / SKILLS -->
+            <div class="border-2 border-news-ink p-2">
+              <h3
+                class="font-headline text-center text-xl font-bold uppercase bg-news-ink text-white py-1 mb-4"
+              >
+                Classifieds
+              </h3>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <h4
+                    class="font-sans font-bold text-[10px] uppercase underline mb-2 tracking-widest"
+                  >
+                    Hard Skills
+                  </h4>
+                  <ul
+                    class="text-[10px] font-sans space-y-1 text-gray-700 font-bold"
+                  >
+                    <li>PYTHON</li>
+                    <li>DATA ANALYTICS</li>
+                    <li>MACHINE LEARNING</li>
+                    <li>MICROSOFT OFFICE</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4
+                    class="font-sans font-bold text-[10px] uppercase underline mb-2 tracking-widest"
+                  >
+                    Soft Skills
+                  </h4>
+                  <ul
+                    class="text-[10px] font-sans space-y-1 text-gray-700 font-bold"
+                  >
+                    <li>PROJECT MANAGEMENT</li>
+                    <li>PRODUCT DEVELOPMENT</li>
+                    <li>ANALYSIS</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mt-4 border-t border-news-ink pt-2">
+                <p
+                  class="font-sans text-[9px] font-bold uppercase text-news-accent tracking-tighter"
+                >
+                  Language Proficiency:
+                </p>
+                <p class="font-body text-[11px] font-bold">
+                  English TOEFL Equivalent: 550
+                </p>
+              </div>
+            </div>
+
+            <!-- CONTACT SECTION -->
+            <div class="border-t-4 border-news-ink pt-6 space-y-8">
+              <div>
+                <div
+                  class="text-center border-2 border-news-ink py-1 mb-4 bg-gray-50 shadow-sm"
+                >
+                  <h3
+                    class="font-headline text-2xl font-bold uppercase tracking-tighter"
+                  >
+                    Official Directory
+                  </h3>
+                </div>
+
+                <div class="space-y-4">
+                  <a
+                    href="mailto:nanditoxamosir@gmail.com"
+                    class="flex items-center group transition-all"
+                  >
+                    <div
+                      class="bg-news-ink text-news-paper p-2 mr-3 group-hover:bg-news-accent transition-colors"
+                    >
+                      <svg
+                        class="w-4 h-4 fill-current"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="font-headline text-sm font-bold border-b border-dotted border-news-ink group-hover:text-news-accent pb-1 transition-colors"
+                    >
+                      nanditoxamosir@gmail.com
+                    </span>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/nanditosamosir/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center group transition-all"
+                  >
+                    <div
+                      class="bg-news-ink text-news-paper p-2 mr-3 group-hover:bg-news-accent transition-colors"
+                    >
+                      <svg
+                        class="w-4 h-4 fill-current"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="font-headline text-sm font-bold border-b border-dotted border-news-ink group-hover:text-news-accent pb-1 transition-colors"
+                    >
+                      LinkedIn Profile
+                    </span>
+                  </a>
+                  <a
+                    href="https://github.com/nanditosamosir"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center group transition-all"
+                  >
+                    <div
+                      class="bg-news-ink text-news-paper p-2 mr-3 group-hover:bg-news-accent transition-colors"
+                    >
+                      <svg
+                        class="w-4 h-4 fill-current"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.7.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.5.3 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"
+                        />
+                      </svg>
+                    </div>
+                    <span
+                      class="font-headline text-sm font-bold border-b border-dotted border-news-ink group-hover:text-news-accent pb-1 transition-colors"
+                    >
+                      GitHub Archive
+                    </span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- VINTAGE CLASSIFIED AD -->
+              <div
+                class="border-4 border-double border-news-ink p-4 bg-white shadow-inner relative overflow-hidden"
+              >
+                <div class="text-center border-b-2 border-news-ink pb-2 mb-3">
+                  <span
+                    class="font-sans font-black text-[10px] tracking-[0.3em] uppercase block"
+                    >Professional Bulletin</span
+                  >
+                  <h3
+                    class="font-headline text-2xl font-bold uppercase leading-none mt-1"
+                  >
+                    SITUATION WANTED
+                  </h3>
+                </div>
+
+                <div class="space-y-2 text-center">
+                  <p
+                    class="font-sans text-[11px] font-bold uppercase tracking-tight leading-none text-news-accent"
+                  >
+                    --- READY FOR IMMEDIATE HIRE ---
+                  </p>
+                  <p
+                    class="font-body text-sm font-semibold italic leading-tight text-gray-800 px-2 uppercase underline decoration-double"
+                  >
+                    Open to Work
+                  </p>
+                  <div class="flex items-center justify-center gap-2 my-2">
+                    <div class="h-[1px] bg-news-ink flex-1"></div>
+                    <span
+                      class="font-sans text-[8px] font-bold opacity-50 uppercase tracking-widest"
+                      >Inquire Directly</span
+                    >
+                    <div class="h-[1px] bg-news-ink flex-1"></div>
+                  </div>
+                  <div
+                    class="bg-news-ink text-news-paper p-3 mt-2 group hover:bg-news-accent transition-colors shadow-lg"
+                  >
+                    <p
+                      class="font-sans text-[9px] font-bold uppercase mb-1 tracking-widest opacity-80"
+                    >
+                      Direct Talent Hotline
+                    </p>
+                    <p class="font-headline text-lg font-bold tracking-tighter">
+                      nanditoxamosir@gmail.com
+                    </p>
+                  </div>
+                  <p
+                    class="font-sans text-[7px] uppercase font-bold text-gray-400 mt-2 tracking-widest"
+                  >
+                    Engineering • Data Science • Analytics • PM
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <footer
+          class="w-full border-t-4 border-news-ink mt-12 pt-8 pb-12 bg-transparent text-center font-sans text-[10px] font-bold uppercase tracking-widest"
+        >
+          <p>
+            &copy; 2026 The Portfolio Times. Produced by Nandito Yuda Samosir.
+          </p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- MAIN SCRIPT -->
+    <script type="module" src="index.tsx"></script>
+    <script>
+      // Aggressive scroll to top pada berbagai timing
+      function scrollToTop() {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
       }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.0",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "vite": "https://aistudiocdn.com/vite@^7.2.0"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/index.tsx"></script>
-  <script type="module" src="/index.tsx"></script>
-</body>
+
+      // Scroll on load
+      window.addEventListener("load", scrollToTop);
+
+      // Scroll on DOMContentLoaded
+      document.addEventListener("DOMContentLoaded", scrollToTop);
+
+      // Scroll immediately
+      scrollToTop();
+
+      // Scroll after short delay untuk ensure
+      setTimeout(scrollToTop, 100);
+      setTimeout(scrollToTop, 500);
+
+      document.getElementById("current-date").innerText = new Date()
+        .toLocaleDateString("en-US", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })
+        .toUpperCase();
+    </script>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>

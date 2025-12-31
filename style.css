@@ -1,0 +1,121 @@
+/* Base styles */
+html {
+  scroll-behavior: auto;
+  overflow-y: scroll;
+}
+
+body {
+  background-color: #fdfcfb;
+  color: #121212;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+/* Base paper texture layer */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Secondary Grain/Noise layer */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: -1;
+  mix-blend-mode: multiply;
+}
+
+/* Vignette overlay */
+.paper-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.03) 100%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #fdfcfb;
+}
+::-webkit-scrollbar-thumb {
+  background: #121212;
+  border: 2px solid #fdfcfb;
+}
+
+/* Newspaper Image Style */
+.newspaper-image-container {
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  border: 1px solid #121212;
+}
+
+/* Halftone Effect Layer REMOVED (Efek titik-titik dihapus) */
+.newspaper-image-container::after {
+  display: none;
+}
+
+img {
+  /* Filters REMOVED (Filter hitam putih dan kontras dihapus) */
+  filter: none;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+  /* Blend mode REMOVED (Agar warna tidak tercampur tekstur kertas) */
+  mix-blend-mode: normal;
+}
+
+/* Interaction: Subtle scale or brightness on hover instead of color reveal */
+a:hover img {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+}
+
+/* Drop Cap via Pseudo-element */
+.drop-article::first-letter {
+  float: left;
+  font-family: "Chomsky", serif !important;
+  font-size: 5rem;
+  line-height: 0.8;
+  padding-top: 0.5rem;
+  padding-right: 0.6rem;
+  margin-top: 0.2rem;
+  font-weight: bold;
+  color: #121212;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Link Hover Effect for Titles */
+a.hover\:underline:hover {
+  color: #8b0000; /* news-accent */
+}

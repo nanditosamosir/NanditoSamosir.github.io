@@ -1,32 +1,39 @@
-// Fix: Import React to resolve "Cannot find namespace 'React'" error.
-import React from 'react';
-
-export interface Skill {
-  name: string;
-  icon: React.ReactNode;
-}
-
 export interface Project {
+  id: string;
   title: string;
+  excerpt: string;
   description: string;
-  tags: string[];
-  image: string;
-  liveUrl?: string;
-  githubUrl: string;
+  technologies: string[];
+  imageUrl: string;
+  date: string;
+  link?: string;
 }
 
-export interface ExperienceItem {
+export interface Experience {
+  id: string;
   role: string;
   company: string;
-  date: string;
-  description: string[];
-  type: 'work' | 'organization';
+  period: string;
+  description: string;
 }
 
-export interface EducationItem {
-  institution: string;
-  degree: string;
-  date: string;
-  description: string;
-  icon: string; // Changed from ReactNode to string to allow image paths
+export interface SkillCategory {
+  category: string;
+  items: string[];
+}
+
+export interface SocialLink {
+  platform: string;
+  url: string;
+  icon?: string;
+}
+
+export enum ChatRole {
+  USER = 'user',
+  MODEL = 'model'
+}
+
+export interface ChatMessage {
+  role: ChatRole;
+  text: string;
 }
